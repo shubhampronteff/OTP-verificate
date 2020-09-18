@@ -6,6 +6,7 @@ import {
   View,
   StyleSheet,
   Dimensions,
+  StatusBar,
 } from "react-native";
 import { FirebaseRecaptchaVerifierModal } from "expo-firebase-recaptcha";
 import firebase from "../firebase";
@@ -44,6 +45,7 @@ function Home({ navigation }) {
 
   return (
     <View style={styles.container}>
+      <StatusBar barStyle="dark-content" backgroundColor="white" />
       <View>
         <Text style={styles.main}>Registration</Text>
       </View>

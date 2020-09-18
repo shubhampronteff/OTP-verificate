@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "840708651795",
+    "firebase_url": "https://otp-project-react.firebaseio.com",
+    "project_id": "otp-project-react",
+    "storage_bucket": "otp-project-react.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840708651795:android:8e098873c2a0b3fd0c38e6",
+        "android_client_info": {
+          "package_name": "OTP_Verification.A123.B45"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840708651795-irv01rjg6337q6jkfn4ak5dvugknumh5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDm3y5IZnaVLF-O2E5Q-RhZ0ratkhsSYu0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840708651795-irv01rjg6337q6jkfn4ak5dvugknumh5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
