@@ -1,14 +1,16 @@
 // import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 // import Home from "./src/Home";
 // import Home1 from "./src/Home1";
 // import Success from "./src/Success";
 import Map from "./src/Map";
 // import { NavigationContainer } from "@react-navigation/native";
 // import { createStackNavigator } from "@react-navigation/stack";
+// import Map2 from "./src/Map2";
+import Map3 from "./src/Map3";
 // const Stack = createStackNavigator();
-
+import Map4 from "./src/Map4";
 export default function App() {
   return (
     <View style={styles.container}>

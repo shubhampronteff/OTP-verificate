@@ -1,12 +1,10 @@
 import { Platform, View, StyleSheet, Dimensions, Text } from "react-native";
 import React, { useState } from "react";
-import MapView from "react-native-maps";
+import MapView, { Circle } from "react-native-maps";
 import { Marker } from "react-native-maps";
 import { MaterialIcons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
-import * as Location from "expo-location";
-import Constants from "expo-constants";
 
 const ht = Dimensions.get("screen").height;
 const wd = Dimensions.get("screen").width;
@@ -19,47 +17,26 @@ function Map() {
     longitudeDelta: 0.0421,
   });
   const [dir, setDir] = useState(false);
-  const [location, setLocation] = useState(null);
-  const [errorMsg, setErrorMsg] = useState(null);
 
-  const See = () => {
-    if (Platform.OS === "android" && !Constants.isDevice) {
-      setErrorMsg(
-        "Oops, this will not work on Sketch in an Android emulator. Try it on your device!"
-      );
-    } else {
-      async () => {
-        let { status } = await Location.requestPermissionsAsync();
-        if (status !== "granted") {
-          setErrorMsg("Permission to access location was denied");
-        }
-
-        let location = await Location.getCurrentPositionAsync({});
-        setLocation(location);
-      };
-    }
-  };
-  let text = "Waiting..";
-  if (errorMsg) {
-    text = errorMsg;
-  } else if (location) {
-    text = JSON.stringify(location);
-  }
   const onRegionChange = (region) => {
     setRegion({ region });
   };
-  console.log(region);
+
   return (
     <View style={{ positio: "absolute" }}>
       <MapView
         region={region}
         onRegionChange={onRegionChange}
         style={styles.map}
+        showsUserLocation={true}
+        showsMyLocationButton={true}
+        showsCompass={true}
+        followsUserLocation={true}
       >
-        <Marker draggable coordinate={region} />
+        {/* <Marker coordinate={region}></Marker> */}
       </MapView>
       <View style={styles.location}>
-        <TouchableOpacity onPress={See}>
+        <TouchableOpacity>
           <MaterialIcons name="my-location" size={44} color="orange" />
         </TouchableOpacity>
       </View>
@@ -77,9 +54,6 @@ function Map() {
           </TouchableOpacity>
         </View>
       ) : null}
-      <View style={{ position: "absolute", top: 100, left: 50 }}>
-        <Text>{text}hello</Text>
-      </View>
     </View>
   );
 }
@@ -122,5 +96,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: wd * 0.03,
+    elevation: 10,
   },
 });
